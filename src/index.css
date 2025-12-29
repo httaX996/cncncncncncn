@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
+  }
+}
+
+:root {
+  /* Premium Dark Theme Variables */
+  --color-primary: #F472B6;
+  /* Pink-400 */
+  --color-primary-dark: #DB2777;
+  /* Pink-600 */
+  --color-secondary: #8B5CF6;
+  /* Violet-500 */
+  --color-accent: #06B6D4;
+  /* Cyan-500 */
+
+  --color-gradient-start: #F472B6;
+  --color-gradient-end: #8B5CF6;
+
+  /* Deep Space Backgrounds */
+  --bg-primary: #0f172a;
+  /* Slate-900 */
+  --bg-secondary: #1e293b;
+  /* Slate-800 */
+  --bg-tertiary: #334155;
+  /* Slate-700 */
+
+  --text-primary: #f8fafc;
+  /* Slate-50 */
+  --text-secondary: #94a3b8;
+  /* Slate-400 */
+  --text-muted: #64748b;
+  /* Slate-500 */
+
+  /* Glassmorphism */
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  * {
+    @apply box-border;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    @apply antialiased overflow-x-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--bg-primary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--bg-tertiary);
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-primary);
+  }
+}
+
+@layer components {
+
+  /* Modern Glass Effect */
+  .glass-effect {
+    @apply backdrop-blur-md bg-opacity-60 border border-white/10 shadow-lg;
+    background-color: var(--glass-bg);
+    border-color: var(--glass-border);
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Text Gradients */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-accent {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    @apply text-white font-semibold rounded-xl shadow-lg shadow-pink-500/20 transform transition-all duration-300 active:scale-95;
+  }
+
+  .btn-primary:hover {
+    @apply shadow-pink-500/40 -translate-y-0.5;
+    filter: brightness(1.1);
+  }
+
+  .btn-glass {
+    @apply glass-effect text-white font-medium rounded-xl hover:bg-white/10 transition-all duration-300 active:scale-95;
+  }
+
+  /* Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* Enhanced Carousel Animations */
+  .animate-expand {
+    animation: expand-card 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.3), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+
+  .spotlight {
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .glass-effect {
+      backdrop-filter: blur(8px);
+      /* Reduce blur for performance */
+    }
+
+    .btn-primary,
+    .btn-glass {
+      @apply py-3 px-6 text-base;
+      /* Larger touch targets */
+    }
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Enhanced Carousel Animations */
+@keyframes expand-card {
+  0% {
+    transform: scale(1);
+    z-index: 10;
+  }
+
+  100% {
+    transform: scale(1.2);
+    z-index: 50;
+  }
+}
+
+/* Snowfall Animation */
+.animate-snowfall {
+  animation-name: snowfall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateY(110vh) translateX(20px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Hero Animation */
+.animate-ken-burns {
+  animation: ken-burns 20s ease-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+/* Firefox Specific Optimizations */
+@-moz-document url-prefix() {
+
+  /* Reduce glass effect cost */
+  .glass-effect {
+    backdrop-filter: blur(4px);
+    /* Reduced from md (12px) */
+    background-color: rgba(15, 23, 42, 0.85);
+    /* More opaque to compensate */
+  }
+
+  /* Optimize animations */
+  .animate-ken-burns,
+  .animate-float,
+  .animate-pulse-slow {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    rotate: 0.0001deg;
+    /* Force GPU rasterization */
+  }
+
+  /* Simplify heavy shadows */
+  .glow-effect {
+    box-shadow: 0 0 10px rgba(244, 114, 182, 0.2);
+    /* Reduced spread */
+  }
+
+  /* Optimize scroll performance */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--bg-tertiary) var(--bg-primary);
+  }
+}
