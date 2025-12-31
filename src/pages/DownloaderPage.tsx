@@ -155,7 +155,7 @@ const DownloaderPage = () => {
         if (loadingDetails) return
 
         if (item.media_type === 'movie') {
-            window.open(`https://dl.vidsrc.vip/movie/${item.id}`, '_blank')
+            window.open(`https://example/movie/${item.id}`, '_blank')
         } else {
             setLoadingDetails(true)
             setLoadingId(item.id)
