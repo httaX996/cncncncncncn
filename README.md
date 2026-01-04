@@ -2,6 +2,8 @@
 
 <div align="center">
 
+![SanuFlix Homepage](https://raw.githubusercontent.com/Sanuu7/SanuFlix-opensource/main/homepage.png)
+
 ### 🌐 [Live Demo](https://sanuflix-web-v2.pages.dev/)
 
 [![Deploy to Cloudflare Pages](https://img.shields.io/badge/Deploy-Cloudflare%20Pages-F38020?logo=cloudflare)](https://pages.cloudflare.com/)
@@ -132,6 +134,29 @@ npm run build    # Production build
 npm run preview  # Preview build
 npm run lint     # Lint code
 ```
+
+---
+
+## 📸 Screenshots
+
+<details>
+<summary>Click to view screenshots</summary>
+
+### Watch Details Page
+![Watch Details Page](https://raw.githubusercontent.com/Sanuu7/SanuFlix-opensource/main/watchdetailspage.png)
+
+### Watch Page
+![Watch Page](https://raw.githubusercontent.com/Sanuu7/SanuFlix-opensource/main/watchpage.png)
+
+### Genre Browser
+![Genre Browser](https://raw.githubusercontent.com/Sanuu7/SanuFlix-opensource/main/genre.png)
+
+### Sports Section
+![Sports Section](https://raw.githubusercontent.com/Sanuu7/SanuFlix-opensource/main/sports.png)
+
+</details>
+
+> 💡 **Check out the [Live Instance](https://sanuflix-web-v2.pages.dev/) for a better experience!**
 
 ---
 
