@@ -39,8 +39,8 @@ export const STREAMING_SERVERS: StreamingServer[] = [
         name: 'Server 1 (Primary)',
         description: 'Primary streaming server with auto-play',
         isActive: true,
-        movieUrlTemplate: 'https://your-embed-server.example/movie/{tmdbId}?autoPlay=true',
-        tvUrlTemplate: 'https://your-embed-server.example/tv/{tmdbId}/{season}/{episode}?autoPlay=true',
+        movieUrlTemplate: 'https://vidfast.pro/movie/{tmdbId}?autoPlay=true',
+        tvUrlTemplate: 'https://vidfast.pro/tv/{tmdbId}/{season}/{episode}?autoPlay=true',
         supportsThemeColor: false,
     },
     {
@@ -48,8 +48,8 @@ export const STREAMING_SERVERS: StreamingServer[] = [
         name: 'Server 2 (Theme Support)',
         description: 'Streaming with theme color support',
         isActive: true,
-        movieUrlTemplate: 'https://your-embed-server2.example/movie/{tmdbId}?color={themeColor}',
-        tvUrlTemplate: 'https://your-embed-server2.example/tv/{tmdbId}/{season}/{episode}?color={themeColor}',
+        movieUrlTemplate: 'https://vidfast.pro/movie/{tmdbId}?color={themeColor}',
+        tvUrlTemplate: 'https://vidfast.pro/tv/{tmdbId}/{season}/{episode}?color={themeColor}',
         supportsThemeColor: true,
     },
     {
